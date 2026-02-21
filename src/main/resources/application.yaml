@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: blackrock-challenge
+
+server:
+  port: 5477
