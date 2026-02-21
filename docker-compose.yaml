@@ -1,0 +1,37 @@
+# FILE NAME: compose.yaml (Mandatory per challenge requirements)
+services:
+  blackrock-service:
+    # Build context and image name following the required convention
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: blk-hacking-ind-aman-mishra
+    container_name: blk-hacking-ind-aman-mishra-container
+
+    # Requirement 1a & 1b: Mapping host:container port 5477
+    ports:
+      - "5477:5477"
+
+    # Environment variable to ensure Spring Boot uses the required port
+    environment:
+      - SERVER_PORT=5477
+      - SERVER_ADDRESS=0.0.0.0
+      - SPRING_PROFILES_ACTIVE=prod
+
+    # Production-grade health check to ensure API readiness
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5477/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    # Automatic restart policy for production stability
+    restart: unless-stopped
+
+    # Resource constraints to manage algorithmic complexity and performance
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
