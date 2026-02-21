@@ -59,15 +59,15 @@ Run via Docker Compose (Recommended)
 
 Start:
 
-```docker-compose -f docker-compose.yaml up```
+```docker-compose -f compose.yaml up```
 OR
-```docker-compose -f docker-compose.yaml up```
+```docker-compose -f compose.yaml up```
 
 Stop:
 
-```docker-compose -f docker-compose.yaml down```
+```docker-compose -f compose.yaml down```
 OR
-```docker-compose -f docker-compose.yaml down```
+```docker-compose -f compose.yaml down```
 
 
 Verify Service is Up

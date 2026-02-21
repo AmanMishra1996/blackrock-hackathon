@@ -1,4 +1,3 @@
-# FILE NAME: compose.yaml (Mandatory per challenge requirements)
 services:
   blackrock-service:
     # Build context and image name following the required convention
